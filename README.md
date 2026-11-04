@@ -2,7 +2,19 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
-First, run the development server:
+Configure the backend API URL before starting the development server. Create a
+`.env.local` file in the project root with the backend's base URL:
+
+```bash
+NEXT_PUBLIC_API_ENDPOINT=http://localhost:<backend-port>
+```
+
+Replace `<backend-port>` with the port used by your backend. Set this to the
+backend origin only (for example, do not append `/events/getPublicEvents`).
+You can start from `.env.example`. Restart the development server after changing
+environment variables.
+
+Then install dependencies and run the development server:
 
 ```bash
 pnpm install
@@ -10,6 +22,9 @@ pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+The backend URL is required for server-side API requests. If it is missing,
+requests fail with `Missing NEXT_PUBLIC_API_ENDPOINT environment variable`.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
